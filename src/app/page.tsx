@@ -1,15 +1,15 @@
 
-import BannerWrapper from "@/components/Shared/banners/BannerWrapperProps";
+import BannerWrapper from "@/components/Shared/Banners/BannerWrapperProps";
+import { SectionCategories } from "@/components/Shared/SectionCategories/SectionCategories";
 
 import { bannerData } from "@/data/dataBasic";
-import { log } from "console";
+import { categoriesData } from "@/data/dataBasic";
+
 
 export default function Home() {
 
 
   const carouselSlides = bannerData.carousel.images;
-  console.log(carouselSlides);
-
 
   const staticImage = bannerData.static.image;
 
@@ -23,8 +23,9 @@ export default function Home() {
         {/* Usando el banner estático */}
         {/* <BannerWrapper bannerType="static" staticImage={staticImage} /> */}
 
+        <SectionCategories categoriesData={categoriesData} />
+
       </div>
     </div>
-
   );
 }
