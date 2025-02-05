@@ -12,9 +12,9 @@ type SectionCategoriesProps = {
 
 export function SectionCategories({ categoriesData }: SectionCategoriesProps) {
     return (
-        <section className="container my-16 mx-auto">
+        <section className="container my-16 px-3 mx-auto">
             <div className="flex items-end justify-between">
-                <h2 className="text-4xl font-bold">Shop by Category</h2>
+                <h2 className="text-lg font-bold md:text-2xl">Shop by Category</h2>
                 <Link href="/categories" className="text-primary" >View All</Link>
             </div>
             <div className="h-72 grid justify-center grid-cols-2 gap-4 mt-8 md:grid-cols-3 lg:grid-cols-6">
