@@ -6,6 +6,7 @@ import { SectionPopularProducts } from "@/components/Shared/SectionPopularProduc
 import { bannerData } from "@/data/dataBasic";
 import { categoriesData } from "@/data/dataBasic";
 import { popularProducts } from "@/data/dataBasic";
+import { popularCategories } from "@/data/dataBasic";
 import { products } from "@/data/dataBasic";
 
 
@@ -27,7 +28,7 @@ export default function Home() {
         {/* <BannerWrapper bannerType="static" staticImage={staticImage} /> */}
       </div>
 
-      <SectionCategories categoriesData={categoriesData} />
+      <SectionCategories categoriesData={popularCategories} />
 
       <SectionPopularProducts products={popularProducts} />
 

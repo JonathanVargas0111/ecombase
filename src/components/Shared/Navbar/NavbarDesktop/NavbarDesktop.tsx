@@ -1,6 +1,7 @@
 'use client'
 import { Logo } from "@/components/Shared/Logo";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { categoriesData } from '@/data/dataBasic'
 
 import {
     NavigationMenu,
@@ -24,7 +25,7 @@ export function NavbarDesktop() {
                 <NavigationMenuList className="flex gap-4">
 
                     <NavigationMenuItem>
-                        <Link href="/docs" legacyBehavior passHref>
+                        <Link href="/" legacyBehavior passHref>
                             <NavigationMenuLink className="hover:text-gray-300 transition-all duration-300">
                                 Home
                             </NavigationMenuLink>
@@ -44,11 +45,19 @@ export function NavbarDesktop() {
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
                                 <NavigationMenuContent className="flex flex-col gap-2 w-56">
-                                    <NavigationMenuLink className="min-w-36 p-3">Cate 1</NavigationMenuLink>
-                                    <NavigationMenuLink className="min-w-36 p-3">Cate 2</NavigationMenuLink>
-                                    <NavigationMenuLink className="min-w-36 p-3">Cate 3</NavigationMenuLink>
-                                    <DropdownMenuSeparator />
-                                    <NavigationMenuLink className="min-w-36 p-3">All</NavigationMenuLink>
+                                    {
+                                        categoriesData.map(
+
+                                            category => (
+                                                <NavigationMenuLink
+                                                    href={category.slug}
+                                                    key={category.slug}
+                                                    className="min-w-36 p-3">
+                                                    {category.name}
+                                                </NavigationMenuLink>
+                                            )
+                                        )
+                                    }
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
