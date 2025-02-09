@@ -1,6 +1,6 @@
 
-import { Product } from "@/interfaces";
-import { ProductGrid } from "../Product/ProductGrid";
+import { ProductGrid } from "@/components";
+import { Product } from "@/interfaces/products.interface";
 
 type SectionPopularProductsProps = {
     products: Product[];

@@ -18,6 +18,7 @@ export interface Category {
   slug: string;
 }
 
+
 export type Categories = 'electronics' | 'home-appliances' | 'fashion' | 'sports-outdoors' | 'beauty-personal-care' |
   'toys-games' | 'automotive' | 'books' | 'health-wellness' | 'groceries' | 'office-supplies' | 'gaming' |
   'furniture' | 'smartphones' | 'wearables' | 'cameras' | 'audio-headphones' | 'laptops-computers' |

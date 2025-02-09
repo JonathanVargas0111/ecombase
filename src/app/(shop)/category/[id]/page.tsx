@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
-import { ProductGrid } from '@/components/Shared/Product/ProductGrid';
-import { products } from '@/data/dataBasic';
-import { categoriesData } from '@/data/dataBasic';
-import { Categories } from '@/interfaces';
-import { Title } from "@/components/ui/title/Title";
+
+import { products } from '@/seed/seed';
+import { categoriesData } from '@/seed/seed';
+
+import { Categories } from "@/interfaces";
+
+import { ProductGrid , Title } from '@/components';
 
 interface Props {
     params: { id: Categories };

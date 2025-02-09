@@ -1,13 +1,10 @@
 
-import BannerWrapper from "@/components/Shared/Banners/BannerWrapperProps";
-import { SectionCategories } from "@/components/Shared/SectionCategories/SectionCategories";
-import { SectionPopularProducts } from "@/components/Shared/SectionPopularProducts";
+import { SectionCategories, SectionPopularProducts } from "@/components";
+import {BannerWrapper} from "@/components";
 
-import { bannerData } from "@/data/dataBasic";
-import { categoriesData } from "@/data/dataBasic";
-import { popularProducts } from "@/data/dataBasic";
-import { popularCategories } from "@/data/dataBasic";
-import { products } from "@/data/dataBasic";
+import { bannerData } from "@/seed/seed";
+import { popularProducts } from "@/seed/seed";
+import { popularCategories } from "@/seed/seed";
 
 
 export default function Home() {
@@ -15,7 +12,7 @@ export default function Home() {
 
   const carouselSlides = bannerData.carousel.images;
 
-  const staticImage = bannerData.static.image;
+  /* const staticImage = bannerData.static.image; */
 
   return (
     <div className="flex flex-col items-center w-full">

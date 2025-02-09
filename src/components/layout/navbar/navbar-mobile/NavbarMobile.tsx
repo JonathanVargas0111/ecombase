@@ -1,4 +1,7 @@
-import { Logo } from "../../Logo";
+import Link from "next/link";
+
+import { Logo } from '@/components'
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -15,7 +18,6 @@ import {
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
 } from "@/components/ui/dropdown-menu"
-import Link from "next/link";
 
 export function NavbarMobile() {
     return (

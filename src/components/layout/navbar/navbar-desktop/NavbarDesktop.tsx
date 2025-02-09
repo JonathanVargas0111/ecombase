@@ -1,7 +1,8 @@
 'use client'
-import { Logo } from "@/components/Shared/Logo";
+import Link from "next/link";
+
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import { categoriesData } from '@/data/dataBasic'
+import { categoriesData } from '@/seed/seed'
 
 import {
     NavigationMenu,
@@ -13,8 +14,8 @@ import {
     NavigationMenuTrigger,
     NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
-import Link from "next/link";
 
+import { Logo } from '@/components'
 
 export function NavbarDesktop() {
 
@@ -33,7 +34,7 @@ export function NavbarDesktop() {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <Link href="/docs" legacyBehavior passHref>
+                        <Link href="/products" legacyBehavior passHref>
                             <NavigationMenuLink className="hover:text-gray-300 transition-all duration-300">
                                 Productos
                             </NavigationMenuLink>
@@ -50,7 +51,7 @@ export function NavbarDesktop() {
 
                                             category => (
                                                 <NavigationMenuLink
-                                                    href={category.slug}
+                                                    href={category.link}
                                                     key={category.slug}
                                                     className="min-w-36 p-3">
                                                     {category.name}

@@ -1,6 +1,5 @@
-import { Logo } from "../Logo";
-import { NavbarDesktop } from "./NavbarDesktop";
-import { NavbarMobile } from "./NavbarMobile";
+import { NavbarDesktop } from "./navbar-desktop/NavbarDesktop";
+import { NavbarMobile } from "./navbar-mobile/NavbarMobile";
 
 export function Navbar() {
     return (

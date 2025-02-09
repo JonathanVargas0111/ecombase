@@ -13,12 +13,10 @@ type BannerWrapperProps = {
     staticImage?: Slide; // Solo si es un banner estático
 };
 
-const BannerWrapper = ({ bannerType, carouselSlides, staticImage }: BannerWrapperProps) => {
+export const BannerWrapper = ({ bannerType, carouselSlides, staticImage }: BannerWrapperProps) => {
     return bannerType === "carousel" ? (
         <CarouselBanner slides={carouselSlides || []} />
     ) : (
         <StaticBanner slide={staticImage || { image: "", link: "", text: "" }} />
     );
 };
-
-export default BannerWrapper;
