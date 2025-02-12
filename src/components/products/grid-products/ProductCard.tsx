@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type ProductProps = {
     product: {
         name: string;
@@ -8,13 +10,15 @@ type ProductProps = {
         category: string;
         rating: number;
         discount?: number;
+        slugCategory: string;
+        slugName: string;
     }
 };
 
 export function ProductCard({ product }: ProductProps) {
     return (
         <div className="relative group w-full">
-            <a href={product.link} className="" title={product.name}>
+            <Link href={`product/${product.slugName}`} className="" title={product.name}>
                 {
                     product.discount ?
                         <span className="absolute bg-red-400 rounded-md p-1 text-white text-sm top-2 right-2" data-v-e0e8aa2a="">{product.discount} %</span>
@@ -25,12 +29,13 @@ export function ProductCard({ product }: ProductProps) {
                     alt={product.name}
                     title={product.name}
                     src={product.image} />  {/* Cambiar por product.image */}
-            </a>
+            </Link>
 
             <div className="p-2">
-                <a href={product.link} className="" title={product.name}>
+                <p className="mb-2 font-light text-sm">{product.category}</p>
+                <Link href={`product/${product.slugName}`} className="" title={product.name}>
                     <h2 className="mb-2 font-light leading-tight group-hover:text-primary">{product.name}</h2>
-                </a>
+                </Link>
                 {
                     product.discount ?
                         <div className="flex font-semibold text-sm">
