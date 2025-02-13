@@ -17,3 +17,5 @@ export function SectionPopularProducts({ products }: SectionPopularProductsProps
         </div>
     );
 }
+
+export default SectionPopularProducts;
