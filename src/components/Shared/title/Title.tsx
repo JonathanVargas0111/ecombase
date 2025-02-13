@@ -7,7 +7,7 @@ interface Props {
 }
 
 
-export const Title = ({ title, subtitle, className }: Props) => {
+export function Title({ title, subtitle, className }: Props)  {
     return (
         <div className={`mt-3 ${className}`}
         >
