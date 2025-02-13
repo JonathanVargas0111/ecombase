@@ -13,9 +13,9 @@ export * from "./products/grid-products/ProductGrid";
 export * from "./products/grid-products/ProductCard";
 
 /* Shared */
-export * from "./logo/Logo";
-export * from "./shared/not-found/PageNotFound";
-export * from "./shared/section-categories/SectionCategories";
-export * from "./shared/section-popular-products/SectionPopularProducts";
-export * from './shared/title/Title'
+export * from "./common/logo/Logo";
+export * from "./common/not-found/PageNotFound";
+export * from "./common/section-categories/SectionCategories";
+export * from "./common/section-popular-products/SectionPopularProducts";
+export * from './common/title/Title'
 
