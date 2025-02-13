@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type ProductProps = {
@@ -24,11 +25,15 @@ export function ProductCard({ product }: ProductProps) {
                         <span className="absolute bg-red-400 rounded-md p-1 text-white text-sm top-2 right-2" data-v-e0e8aa2a="">{product.discount} %</span>
                         : null
                 }
-                <img
+                <Image
                     className="h-60 rounded-lg object-top object-cover w-full aspect-9/8"
                     alt={product.name}
                     title={product.name}
-                    src={product.image} />  {/* Cambiar por product.image */}
+                    src={product.image}
+                    width={500}
+                    height={500}
+                    />  {/* Cambiar por product.image */}
+
             </Link>
 
             <div className="p-2">

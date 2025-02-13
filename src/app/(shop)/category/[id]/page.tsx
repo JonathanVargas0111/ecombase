@@ -3,17 +3,16 @@ import { notFound } from "next/navigation";
 import { products } from '@/seed/seed';
 import { categoriesData } from '@/seed/seed';
 
-import { Categories } from "@/interfaces";
-
 import { ProductGrid , Title } from '@/components';
 
-interface Props {
-    params: { id: Categories };
-}
+type Props = {
+    params: Promise<{ id: string }>;
+};
 
-export default async function ({ params }: Props) {
+export default async function CategoryPage({ params }: Props) {
 
-    const { id } = await params;
+    const { id } =   await params;
+
     const category = categoriesData.find(category => category.slug === id);
 
     if (!category && id !== "all") notFound();
@@ -32,7 +31,6 @@ export default async function ({ params }: Props) {
                 subtitle={subtitle}
                 className="mb-8"
             />
-
             <ProductGrid products={filteredProducts} />
         </div>
     )

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Category = {
@@ -21,10 +22,12 @@ export function SectionCategories({ categoriesData }: SectionCategoriesProps) {
                 {
                     categoriesData.map((category, index) => (
                         <Link href={category.link} key={index} className="relative flex justify-center overflow-hidden border border-white rounded-xl item snap-mandatory snap-x w-full">
-                            <img
+                            <Image
                                 src={category.image}
                                 alt="static-banner"
                                 className="absolute inset-0 object-cover w-full h-full"
+                                width={500}
+                                height={500}
                             />
                             <div className="absolute inset-x-0 bottom-0 opacity-50 bg-gradient-to-t from-black to-transparent h-1/2"></div>
                             <span className="relative z-10 mt-auto mb-2 text-sm font-semibold text-white capitalize md:text-base md:mb-4">{category.name}</span>

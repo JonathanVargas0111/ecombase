@@ -56,7 +56,9 @@ export function Footer() {
                                 Contact
                             </a>
                             <a href="#" className="hover:underline">
+                               {`
                                 FAQ's
+                               `}
                             </a>
                         </nav>
                     </div>

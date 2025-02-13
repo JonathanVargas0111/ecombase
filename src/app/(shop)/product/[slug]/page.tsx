@@ -5,21 +5,20 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface Props {
-    params: { slug: string }
-}
+    params: Promise<{ slug: string }>;
+};
+
 
 
 export default async function ProductPage({ params }: Props) {
 
-    const { slug } = params;
+    const { slug } = await params;
 
     const product: Product | undefined = products.find(product => product.slugName === slug)
 
     const relatedProducts = products.filter(pd => pd.category === product?.category)
 
-    console.log(product);
-
-
+    
     if (!product) notFound()
 
     return (

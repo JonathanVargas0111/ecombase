@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay"
+import Image from "next/image";
 
 type Slide = {
     image: string;
@@ -33,10 +34,12 @@ const CarouselBanner = ({ slides }: CarouselBannerProps) => {
                 {slides.map((slide, index) => (
                     <CarouselItem key={index} className="w-full h-[500px] text-white flex items-center justify-center">
                         <Link href={slide.link} className="w-full h-full">
-                            <img
+                            <Image
                                 src={slide.image}
                                 alt="static-banner"
                                 className="w-full h-full object-cover"
+                                width={500}
+                                height={500}
                             />
                         </Link>
                     </CarouselItem>

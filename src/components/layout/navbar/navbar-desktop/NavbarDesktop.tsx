@@ -1,18 +1,14 @@
 'use client'
 import Link from "next/link";
-
-import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { categoriesData } from '@/seed/seed'
 
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 
 import { Logo } from '@/components'
