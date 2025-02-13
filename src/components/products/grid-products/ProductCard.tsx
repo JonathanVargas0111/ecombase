@@ -18,7 +18,7 @@ type ProductProps = {
 export function ProductCard({ product }: ProductProps) {
     return (
         <div className="relative group w-full">
-            <Link href={`product/${product.slugName}`} className="" title={product.name}>
+            <Link href={`/product/${product.slugName}`} className="" title={product.name}>
                 {
                     product.discount ?
                         <span className="absolute bg-red-400 rounded-md p-1 text-white text-sm top-2 right-2" data-v-e0e8aa2a="">{product.discount} %</span>
@@ -33,7 +33,7 @@ export function ProductCard({ product }: ProductProps) {
 
             <div className="p-2">
                 <p className="mb-2 font-light text-sm">{product.category}</p>
-                <Link href={`product/${product.slugName}`} className="" title={product.name}>
+                <Link href={`/product/${product.slugName}`} className="" title={product.name}>
                     <h2 className="mb-2 font-light leading-tight group-hover:text-primary">{product.name}</h2>
                 </Link>
                 {
