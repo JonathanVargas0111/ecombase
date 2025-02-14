@@ -1,24 +1,24 @@
-import { Product } from "@/interfaces";
-import { products } from "@/seed/seed";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import { Product } from "@/interfaces";
+
+import { getProductBySlug, getRelatedProducts } from "@/actions";
 
 interface Props {
     params: Promise<{ slug: string }>;
 };
 
-
-
 export default async function ProductPage({ params }: Props) {
 
     const { slug } = await params;
 
-    const product: Product | undefined = products.find(product => product.slugName === slug)
+    const product: Product | undefined = await getProductBySlug(slug)
 
-    const relatedProducts = products.filter(pd => pd.category === product?.category)
+    const relatedProducts: Product[] | [] = await getRelatedProducts(product?.category)
 
-    
+
     if (!product) notFound()
 
     return (
@@ -68,27 +68,27 @@ export default async function ProductPage({ params }: Props) {
             </div>
 
             {
-                relatedProducts.length <= 1 ? null :<div className="w-full p-2">
-                <h4 className="text-2xl font-bold">Related products</h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-4">
-                    {
-                        relatedProducts.map(product => (
-                            <Link key={product.slugName} href={`/product/${product.slugName}`} className="w-full h-full grid gap-2">
-                                <Image
-                                    src={product.image}
-                                    alt={product.name}
-                                    width={500}
-                                    height={500}
-                                    className="w-full min-h-[200px] h-auto object-cover"
-                                ></Image>
-                            </Link>
-                        ))
-                    }
+                relatedProducts.length <= 1 ? null : <div className="w-full p-2">
+                    <h4 className="text-2xl font-bold">Related products</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-4">
+                        {
+                            relatedProducts.map(product => (
+                                <Link key={product.slugName} href={`/product/${product.slugName}`} className="w-full h-full grid gap-2">
+                                    <Image
+                                        src={product.image}
+                                        alt={product.name}
+                                        width={500}
+                                        height={500}
+                                        className="w-full min-h-[200px] h-auto object-cover"
+                                    ></Image>
+                                </Link>
+                            ))
+                        }
+                    </div>
                 </div>
-            </div>
             }
 
-            
+
         </div>
 
     );

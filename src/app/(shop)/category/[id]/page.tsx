@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 
-import { products } from '@/seed/seed';
-import { categoriesData } from '@/seed/seed';
+import { Category, Product } from "@/interfaces";
 
-import { ProductGrid , Title } from '@/components';
+import { getCategories, getCategoryBySlug, getProducts } from "@/actions";
+
+import { ProductGrid, SectionCategories, Title } from '@/components';
 
 type Props = {
     params: Promise<{ id: string }>;
@@ -11,9 +12,12 @@ type Props = {
 
 export default async function CategoryPage({ params }: Props) {
 
-    const { id } =   await params;
+    const { id } = await params;
+    const categoriesData = await getCategories()
 
-    const category = categoriesData.find(category => category.slug === id);
+    const products: Product[] | [] = await getProducts()
+
+    const category: Category | undefined = await getCategoryBySlug(id)
 
     if (!category && id !== "all") notFound();
 
@@ -26,12 +30,19 @@ export default async function CategoryPage({ params }: Props) {
 
     return (
         <div className="px-5">
-            <Title
-                title={title}
-                subtitle={subtitle}
-                className="mb-8"
-            />
-            <ProductGrid products={filteredProducts} />
+            {
+                id !== "all" ?
+                    <div>
+                        <Title
+                            title={title}
+                            subtitle={subtitle}
+                            className="mb-8"
+                        />
+                        <ProductGrid products={filteredProducts} />
+                    </div>
+                    :
+                    <SectionCategories categoriesData={categoriesData} />
+            }
         </div>
     )
 }
